@@ -10,6 +10,7 @@ const istype = {
 function ModernHTML(){
 
     function createTag(e){
+        if (!istype.str(e)) return;
         tag = document.getElementsByTagName(e);
         attr = [];   
         
@@ -36,6 +37,7 @@ function ModernHTML(){
         }
         
         function createAttr(name, callback){
+            if (!(istype.str(name) && istype.fnc(callback))) return;
             if (istype.str(name)) {
                 attr.push(name);
                 for (i=tag.length-1; i > -1; i--) {
@@ -50,6 +52,7 @@ function ModernHTML(){
         }
 
         function defaultAttr(a) {
+            if (!istype.arr(a)) return;
             for (i=tag.length-1; i > -1; i--) { //check pour toute les itérations de balise tag
                 if (tag[i].attributes.length === 0){
                     setAttr(tag[i], a);
@@ -60,7 +63,6 @@ function ModernHTML(){
         function setAttr(elem, a) {
             for (i=0; i<a.length;i++) //boucle pour tout les attributs par défaut
                 elem.setAttribute(a, "");
-
         }
 
         return {
