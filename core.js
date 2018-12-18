@@ -80,26 +80,3 @@ function ModernAnimation(){
 
 
 /* ------------ANIMATION TEST CODE--------------------*/
-
-blabla = new ModernAnimation();
-
-b = blabla.createTag('diaporama');
-
-b.defaultAttr([
-    'zoomout'
-]);
-
-
-b.createAttr('zoomout', (elem)=>{
-    elem2 = b.replaceTag('div', elem);
-    elem2.style.height = '100px';
-    elem2.style.width = '100px';
-    elem2.style.backgroundColor = 'red';
-});
-
-b.createAttr('zoomin', (elem)=>{
-    elem2 = b.replaceTag('div', elem);
-    elem2.style.height = '100px';
-    elem2.style.width = '100px';
-    elem2.style.backgroundColor = 'green';
-});
