@@ -1,4 +1,4 @@
-const is = {
+const istype = {
     arr: a => Array.isArray(a),
     obj: a => stringContains(Object.prototype.toString.call(a), 'Object'),
     str: a => typeof a === 'string',
@@ -7,14 +7,14 @@ const is = {
     htc: a => HTMLCollection.prototype.isPrototypeOf(a)
 }
 
-function ModernAnimation(){
+function ModernHTML(){
 
     function createTag(e){
         tag = document.getElementsByTagName(e);
         attr = [];   
         
         function replaceTag(f, elem){
-            if (is.htc(elem)) {
+            if (istype.htc(elem)) {
                 for (i=elem.length-1; i > -1; i--) {
                     r = document.createElement(f);
 
@@ -36,14 +36,14 @@ function ModernAnimation(){
         }
         
         function createAttr(name, callback){
-            if (is.str(name)) {
+            if (istype.str(name)) {
                 attr.push(name);
                 for (i=tag.length-1; i > -1; i--) {
                     if (tag[i].hasAttribute(name)) {
                         callback(tag[i]);
                     }
                 }
-            } else if (is.htc(name)) {
+            } else if (istype.htc(name)) {
                 callback(name);
             }
 
@@ -79,4 +79,4 @@ function ModernAnimation(){
 
 
 
-/* ------------ANIMATION TEST CODE--------------------*/
+/* ------------HTML TEST CODE--------------------*/
