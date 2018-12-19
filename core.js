@@ -9,31 +9,24 @@ const istype = {
 
 function ModernHTML () {
 
-  function createTag (e) {
-    if (!istype.str(e)) return
-    tag = document.getElementsByTagName(e)
-    attr = []
+    function createTag(e){
+        if (!istype.str(e)) return
+        tag = document.getElementsByTagName(e)
+        attr = []  
+        
+        function replaceTag(f, elem){
+          if (istype.htc(elem)) return
+          else {
+             r = document.createElement(f)
 
-    function replaceTag (f, elem) {
-      if (istype.htc(elem)) {
-        for (var i = elem.length - 1; i > -1; i--) {
-          r = document.createElement(f)
+             for (index = elem.attributes.length - 1; index >= 0; --index) {
+                 r.attributes.setNamedItem(elem.attributes[index].cloneNode())
+             }
+             elem.parentNode.replaceChild(r, elem)
 
-          for (var index = elem[i].attributes.length - 1; index >= 0; --index) {
-            r.attributes.setNamedItem(elem[i].attributes[index].cloneNode())
-          }
-          h = elem[i].parentNode.replaceChild(r, elem[i])
-        }
-      } else {
-        r = document.createElement(f)
-
-        for (index = elem.attributes.length - 1; index >= 0; --index) {
-          r.attributes.setNamedItem(elem.attributes[index].cloneNode())
-        }
-        elem.parentNode.replaceChild(r, elem)
-        return r
-      }
-    }
+             return r
+         }
+     }
     
     function createAttr (name, callback) {
       if (!(istype.str(name) && istype.fnc(callback))) return
@@ -77,4 +70,8 @@ function ModernHTML () {
   }
 }
 
-/* ------------ HTML TEST CODE -------------------- */
+
+
+/* ------------HTML TEST CODE--------------------*/
+
+requirejs(['diaporama']);
