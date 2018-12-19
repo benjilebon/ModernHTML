@@ -11,6 +11,15 @@ function log(t) {
   console.log(t)
 }
 
+function documentReady(fnc) {
+  var tid = setInterval( function () {
+    if ( document.readyState !== 'complete' ) return;
+    clearInterval( tid )      
+    fnc()
+  }, 100 )  
+}
+
+
 function ModernHTML () {
 
     function createTag(e){
@@ -80,6 +89,7 @@ function ModernHTML () {
     createTag: createTag
   }
 }
+setTimeout(()=>{document.body.style.display = 'block'}, 200)
 
 
 

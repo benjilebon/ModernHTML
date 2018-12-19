@@ -25,7 +25,7 @@
 }
 
 .active {
-    animation: o-fadein 10s forwards;
+    animation: o-fadein 10s linear forwards;
 }
 
 .hidden {
