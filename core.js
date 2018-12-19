@@ -7,6 +7,10 @@ const istype = {
   htc: a => HTMLCollection.prototype.isPrototypeOf(a)
 }
 
+function log(t) {
+  console.log(t)
+}
+
 function ModernHTML () {
 
     function createTag(e){
@@ -17,14 +21,21 @@ function ModernHTML () {
         function replaceTag(f, elem){
           if (istype.htc(elem)) return
           else {
-             r = document.createElement(f)
-
-             for (index = elem.attributes.length - 1; index >= 0; --index) {
-                 r.attributes.setNamedItem(elem.attributes[index].cloneNode())
-             }
-             elem.parentNode.replaceChild(r, elem)
-
-             return r
+            r = document.createElement(f)
+            for (index = elem.attributes.length - 1; index >= 0; --index) {
+                r.attributes.setNamedItem(elem.attributes[index].cloneNode())
+            }
+            h = elem.parentNode.replaceChild(r, elem)
+            for (var c=elem.children.length-1; c > -1 ;c--) {
+              r.appendChild(elem.children[c])
+            }          
+              var k = r.childNodes;   
+              var nk = k.length; 
+              for(var i = nk-1; i >= 0; i--) {  
+                  var c = r.removeChild(k[i]);    
+                  r.appendChild(c);                  
+              }        
+            return r
          }
      }
     
