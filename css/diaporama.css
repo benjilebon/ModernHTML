@@ -24,10 +24,6 @@
     left: 0;
 }
 
-.active {
-    animation: o-fadein 10s linear forwards;
-}
-
 .hidden {
     animation: o-fadeout 1s forwards;
 }

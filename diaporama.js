@@ -4,41 +4,57 @@ documentReady(()=>{
     diaporama = modern.createTag('diaporama');
 
     diaporama.defaultAttr([
-        'zoomout'
+        'zoomout',
+        'time'
     ]);
 
+    diaporama.replaceTag('div', diaporama.value)
+
     diaporama.createAttr('zoomout', (elem)=>{
-        elem2 = diaporama.replaceTag('div', elem)
+        
         //Add classes
-        elem2.classList.add('modern-diaporama-wrapper')
-        for (var i=elem2.children.length-1; i > -1; i--) {
-        elem2.children[i].classList.add('modern-diaporama') 
+        elem.classList.add('modern-diaporama-wrapper')
+        for (var i=elem.children.length-1; i > -1; i--) {
+        elem.children[i].classList.add('modern-diaporama') 
+        }    
+    })
+
+    diaporama.createAttr(v = 'time', (elem)=>{
+        time = elem.getAttribute(v)
+        if (time === "") {
+            time = 5
         }
         c = 0
-        elem2.children[c].classList.add('active')
-        for (var i=1; i<elem2.children.length;i++) {
-            elem2.children[c+i].classList.add('init')
+        elem.children[c].style.animation = `o-fadein ${time}s linear forwards`
+        elem.children[c].classList.add('active')
+        for (var i=1; i<elem.children.length;i++) {
+            elem.children[c+i].classList.add('init')
         }
 
         function diaporamaLoop(){
             self.setTimeout(()=>{
-                elem2.children[c].classList.add('hidden')
-                elem2.children[c].classList.remove('active')
-                if (istype.und(elem2.children[c+1])){
+                elem.children[c].style.animation = `o-fadein ${time}s linear forwards`
+                elem.children[c].classList.add('hidden')
+                elem.children[c].style.animation = `o-fadeout ${time/10}s linear forwards`
+                elem.children[c].classList.remove('active')
+                if (istype.und(elem.children[c+1])){
                     c = 0
-                    elem2.children[c].classList.add('active')
-                    elem2.children[c].classList.remove('hidden')
-                    elem2.children[c].classList.remove('init')
+                    elem.children[c].style.animation = `o-fadein ${time}s linear forwards`
+                    elem.children[c].classList.add('active')
+                    elem.children[c].classList.remove('hidden')
+                    elem.children[c].classList.remove('init')
                 } else {
-                    elem2.children[c+1].classList.add('active')
-                    elem2.children[c+1].classList.remove('hidden')
-                    elem2.children[c+1].classList.remove('init')
+                    elem.children[c+1].style.animation = `o-fadein ${time}s linear forwards`
+                    elem.children[c+1].classList.add('active')
+                    elem.children[c+1].classList.remove('hidden')
+                    elem.children[c+1].classList.remove('init')
                     c++
                 }
                 diaporamaLoop()                
-            }, 10000)                
+            }, time*1000)                
         }
         diaporamaLoop()
-            
-    });    
+    })
+    
+
 })
