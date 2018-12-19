@@ -15,16 +15,8 @@ function ModernHTML(){
         attr = [];   
         
         function replaceTag(f, elem){
-            if (istype.htc(elem)) {
-                for (i=elem.length-1; i > -1; i--) {
-                    r = document.createElement(f);
-
-                    for (index = elem[i].attributes.length - 1; index >= 0; --index) {
-                        r.attributes.setNamedItem(elem[i].attributes[index].cloneNode());
-                    }
-                    h = elem[i].parentNode.replaceChild(r, elem[i]);
-                }                
-            } else {
+             if (istype.htc(elem)) return;
+             else {
                 r = document.createElement(f);
 
                 for (index = elem.attributes.length - 1; index >= 0; --index) {
@@ -40,8 +32,11 @@ function ModernHTML(){
             if (!(istype.str(name) && istype.fnc(callback))) return;
             if (istype.str(name)) {
                 attr.push(name);
+                console.log('test1');
                 for (i=tag.length-1; i > -1; i--) {
+                    console.log('test2');
                     if (tag[i].hasAttribute(name)) {
+                        console.log('test2');
                         callback(tag[i]);
                     }
                 }
@@ -82,3 +77,5 @@ function ModernHTML(){
 
 
 /* ------------HTML TEST CODE--------------------*/
+
+requirejs(['diaporama']);
