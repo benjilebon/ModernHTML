@@ -57,8 +57,6 @@ function ModernHTML () {
             callback(tag[i])
           }
         }
-      } else if (istype.htc(name)) {
-        callback(name)
       }
     }
 
@@ -73,7 +71,7 @@ function ModernHTML () {
 
     function setAttr (elem, a) {
       for (var i = 0; i < a.length; i++) { // Boucle pour tout les attributs par défaut
-        elem.setAttribute(a, '')
+        elem.setAttribute(a[i], '')
       }
     }
 

@@ -22,7 +22,6 @@ documentReady(()=>{
 
         function diaporamaLoop(){
             self.setTimeout(()=>{
-                console.log(elem2.children[c])
                 elem2.children[c].classList.add('hidden')
                 elem2.children[c].classList.remove('active')
                 if (istype.und(elem2.children[c+1])){
