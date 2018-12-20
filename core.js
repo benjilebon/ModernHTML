@@ -1,11 +1,11 @@
-const istype = {
-  arr: a => Array.isArray(a),
-  obj: a => stringContains(Object.prototype.toString.call(a), 'Object'),
-  str: a => typeof a === 'string',
-  fnc: a => typeof a === 'function',
-  und: a => typeof a === 'undefined',
-  htc: a => HTMLCollection.prototype.isPrototypeOf(a)
-}
+  var istype = {
+    arr: a => Array.isArray(a),
+    obj: a => stringContains(Object.prototype.toString.call(a), 'Object'),
+    str: a => typeof a === 'string',
+    fnc: a => typeof a === 'function',
+    und: a => typeof a === 'undefined',
+    htc: a => HTMLCollection.prototype.isPrototypeOf(a)
+  }
 
 function log(t) {
   console.log(t)
@@ -138,6 +138,7 @@ setTimeout(()=>{document.body.style.display = 'block'}, 200)
 
 /* TODO:
 -Add default attribute value
+?Fix default attribute missing when at least 1 is present
 */
 
 /* ------------HTML TEST CODE--------------------*/
