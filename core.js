@@ -1,24 +1,20 @@
-  var istype = {
-    arr: a => Array.isArray(a),
-    obj: a => stringContains(Object.prototype.toString.call(a), 'Object'),
-    str: a => typeof a === 'string',
-    fnc: a => typeof a === 'function',
-    und: a => typeof a === 'undefined',
-    htc: a => HTMLCollection.prototype.isPrototypeOf(a)
-  }
-
+var istype = {
+  arr: a => Array.isArray(a),
+  obj: a => stringContains(Object.prototype.toString.call(a), 'Object'),
+  str: a => typeof a === 'string',
+  fnc: a => typeof a === 'function',
+  und: a => typeof a === 'undefined',
+  htc: a => HTMLCollection.prototype.isPrototypeOf(a)
+}
 function log(t) {
   console.log(t)
 }
-
 function warn(t) {
   console.warn('ModernHTML Core: '+t)
 }
-
 function error(t) {
   console.error('ModernHTML Core: '+t)
 }
-
 function documentReady(fnc) {
   var tid = setInterval( function () {
     if ( document.readyState !== 'complete' ) return;
@@ -26,8 +22,6 @@ function documentReady(fnc) {
     fnc()
   }, 100 )  
 }
-
-
 function ModernHTML () {
 
     function createTag(e){
@@ -141,6 +135,6 @@ setTimeout(()=>{document.body.style.display = 'block'}, 200)
 ?Fix default attribute missing when at least 1 is present
 */
 
-/* ------------HTML TEST CODE--------------------*/
+/* ------------TAGS IMPORT-------------------*/
 
-requirejs(['diaporama']);
+requirejs(['diaporama'])
