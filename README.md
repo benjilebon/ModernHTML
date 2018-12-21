@@ -4,9 +4,9 @@ ModernHTML is a framework that allows the user to use custom html tags to make c
 
 # Main features
 
-1. Use custom pre-built tags and build your website easily
-2. Create your own tags with a simplified core
-3. Use attributes to configure how you want a tag to work
+* Use custom pre-built tags and build your website easily
+* Create your own tags with a simplified core
+* Use attributes to configure how you want a tag to work
 
 
 
