@@ -34,7 +34,7 @@ function ModernHTML () {
             if (istype.htc(elem)){
               for (i=elem.length-1; i > -1; i--) {
                     r = document.createElement(f);
-                    r.classList.add('_wrapNodeList')
+                    elem[i].classList.add('_wrapNodeList')
                     for (index = elem[i].attributes.length - 1; index >= 0; --index) {
                         r.attributes.setNamedItem(elem[i].attributes[index].cloneNode());
                     }
