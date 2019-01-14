@@ -17,7 +17,7 @@ function error(t) {
 }
 function documentReady(fnc) {
   var tid = setInterval( function () {
-    if ( document.readyState !== 'complete' ) return;
+    if ( document.readyState !== 'complete' ) return
     clearInterval( tid )      
     fnc()
   }, 100 )  
@@ -33,20 +33,20 @@ function ModernHTML () {
           if (!istype.str(f)) return error('replaceTag: Argument1 must be a string')
             if (istype.htc(elem)){
               for (i=elem.length-1; i > -1; i--) {
-                    r = document.createElement(f);
+                    r = document.createElement(f)
                     elem[i].classList.add('_wrapNodeList')
                     for (index = elem[i].attributes.length - 1; index >= 0; --index) {
-                        r.attributes.setNamedItem(elem[i].attributes[index].cloneNode());
+                        r.attributes.setNamedItem(elem[i].attributes[index].cloneNode())
                     }
-                    h = elem[i].parentNode.replaceChild(r, elem[i]);
+                    h = elem[i].parentNode.replaceChild(r, elem[i])
                     for (var c=h.children.length-1; c > -1 ;c--) {
                       r.appendChild(h.children[c])
                     }          
-                      var k = r.childNodes;   
+                      var k = r.childNodes   
                       var nk = k.length; 
                       for(var i = nk-1; i >= 0; i--) {  
-                          var c = r.removeChild(k[i]);    
-                          r.appendChild(c);                  
+                          var c = r.removeChild(k[i])    
+                          r.appendChild(c)                  
                       }
                 }
               n = document.querySelectorAll('._wrapNodeList')
@@ -73,11 +73,11 @@ function ModernHTML () {
               for (var c=elem.children.length-1; c > -1 ;c--) {
                 r.appendChild(elem.children[c])
               }          
-                var k = r.childNodes;   
-                var nk = k.length; 
+                var k = r.childNodes   
+                var nk = k.length 
                 for(var i = nk-1; i >= 0; i--) {  
-                    var c = r.removeChild(k[i]);    
-                    r.appendChild(c);                  
+                    var c = r.removeChild(k[i])    
+                    r.appendChild(c)                  
                 }        
               return r
             } 
